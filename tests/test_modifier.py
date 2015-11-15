@@ -1,5 +1,5 @@
 from corputil import Corpus
-from corputil.modifiers import to_sentences, to_words
+from corputil.modifiers import to_sentences, to_words, to_words_sl
 from os import path
 
 
@@ -10,7 +10,7 @@ def test_without():
     pass
 
 
-def test_words():
+def test_words_sl():
     wordlist = [
         ['damen', 'herren'],
         ['führt', 'institut'],
@@ -19,7 +19,7 @@ def test_words():
         ['einhergehenden', 'üppigeren', 'spritverbrauch', 'geld', 'ausgleichen', 'fahrer', 'autos', 'zugehen'],
         ['thema', 'mitte', 'gesellschaft', 'angekommen']
     ]
-    corpus = Corpus(test_file2, modifier=to_words)
+    corpus = Corpus(test_file2, modifier=to_words_sl)
     for i, words in enumerate(corpus):
         if i is 0:
             print(words)

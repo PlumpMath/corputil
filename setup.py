@@ -7,9 +7,11 @@ setup(
     name='corputil',
     version='0.2.1',
     packages=['corputil'],
+    package_data={'corputil': ['stopwords/*.txt']},
     url='',
-    license='',
+    license='MIT',
     author='Sascha Can',
     author_email='Sascha.Can@gmail.com',
-    description=''
+    description='',
+    install_requires=['nltk']
 )

@@ -1,4 +1,4 @@
-from corputil import Corpus
+from corputil import FileCorpus
 from corputil.modifiers import to_sentences, to_words, to_words_sl
 from os import path
 
@@ -19,7 +19,7 @@ def test_words_sl():
         ['einhergehenden', 'üppigeren', 'spritverbrauch', 'geld', 'ausgleichen', 'fahrer', 'autos', 'zugehen'],
         ['thema', 'mitte', 'gesellschaft', 'angekommen']
     ]
-    corpus = Corpus(test_file2, modifier=to_words_sl)
+    corpus = FileCorpus(test_file2, modifier=to_words_sl)
     for i, words in enumerate(corpus):
         if i is 0:
             print(words)
@@ -35,7 +35,7 @@ def test_sentences():
         'Und er muss auch auf die Fahrer der mehrere Millionen Autos zugehen.',
         'Es zeigt ja auch, dass das Thema in der Mitte der Gesellschaft angekommen ist.'
     ]
-    corpus = Corpus(test_file2, modifier=to_sentences)
+    corpus = FileCorpus(test_file2, modifier=to_sentences)
     for i, sentence in enumerate(corpus):
         print(sentence)
         assert sentence == sentencelist[i]

@@ -5,7 +5,7 @@ except:
 
 setup(
     name='corputil',
-    version='0.2.1',
+    version='0.3.0',
     packages=['corputil'],
     package_data={'corputil': ['stopwords/*.txt']},
     url='',

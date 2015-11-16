@@ -21,7 +21,6 @@ setup(
     version='0.3.0',
     packages=['corputil'],
     package_data={'corputil': ['stopwords/*.txt']},
-    setup_requires=['nltk'],
     install_requires=['nltk'],
     url='',
     license='MIT',

@@ -10,7 +10,7 @@ def _post_install():
 class Install(_install):
     def run(self):
         _install.run(self)
-        self.execute(_post_install, msg='Running post install...')
+        self.execute(_post_install, [], msg='Running post install...')
 
 
 setup(

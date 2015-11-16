@@ -1,15 +1,18 @@
 from setuptools import setup
-from setuptools.command.install import  install as _install
+from setuptools.command.install import install
 
 
 def _post_install():
+    import site
+    from importlib import reload
+    reload(site)
     import nltk
     nltk.download('punkt')
 
 
-class Install(_install):
+class Install(install):
     def run(self):
-        _install.run(self)
+        install.run(self)
         self.execute(_post_install, [], msg='Running post install...')
 
 

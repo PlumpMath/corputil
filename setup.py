@@ -1,7 +1,17 @@
-try:
-    from setuptools import setup
-except:
-    from distutils.core import setup
+from setuptools import setup
+from setuptools.command.install import  install as _install
+
+
+def _post_install():
+    import nltk
+    nltk.download('punkt')
+
+
+class Install(_install):
+    def run(self):
+        _install.run(self)
+        self.execute(_post_install, msg='Running post install...')
+
 
 setup(
     name='corputil',
@@ -13,5 +23,6 @@ setup(
     license='MIT',
     author='Sascha Can',
     author_email='Sascha.Can@gmail.com',
-    description=''
+    description='',
+    cmdclass={'install': Install}
 )

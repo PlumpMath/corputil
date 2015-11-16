@@ -3,10 +3,10 @@ from setuptools import setup
 
 setup(
     name='corputil',
-    version='0.3.0',
+    version='0.3.4',
     packages=['corputil'],
     package_data={'corputil': ['stopwords/*.txt']},
-    install_requires=['nltk'],
+    install_requires=['nltk', 'textblob-de'],
     url='',
     license='MIT',
     author='Sascha Can',

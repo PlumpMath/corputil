@@ -1,5 +1,5 @@
 from corputil import FileCorpus
-from corputil.modifiers import to_sentences, to_words, to_words_sl
+from corputil.modifiers import to_sentences, sentence_to_words, sentence_to_words_sl
 from os import path
 
 
@@ -19,7 +19,7 @@ def test_words_sl():
         ['einhergehenden', 'üppigeren', 'spritverbrauch', 'geld', 'ausgleichen', 'fahrer', 'autos', 'zugehen'],
         ['thema', 'mitte', 'gesellschaft', 'angekommen']
     ]
-    corpus = FileCorpus(test_file2, modifier=to_words_sl)
+    corpus = FileCorpus(test_file2, modifier=sentence_to_words_sl)
     for i, words in enumerate(corpus):
         if i is 0:
             print(words)

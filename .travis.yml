@@ -6,7 +6,7 @@ before_install:
     - pip install pytest pytest-cov
 install:
     - python setup.py install
-after_install:
+before_script:
     - python -m nltk.downloader punkt
 script:
     - py.test

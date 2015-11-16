@@ -1,8 +1,8 @@
 from corputil import FileCorpus, MultiFileCorpus
 from os import path
 
-test_file1 = path.join('tests', 'data', 'test_corpus_1.txt')
-test_file2 = path.join('tests', 'data', 'test_corpus_2.txt')
+test_file1 = path.join('tests', 'data', 'corpus_1.txt')
+test_file2 = path.join('tests', 'data', 'corpus_2.txt')
 
 
 def test_corpus():

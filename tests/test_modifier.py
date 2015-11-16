@@ -3,7 +3,7 @@ from corputil.modifiers import to_sentences, to_words, to_words_sl
 from os import path
 
 
-test_file2 = path.join('tests', 'data', 'test_corpus_2.txt')
+test_file2 = path.join('tests', 'data', 'corpus_2.txt')
 
 
 def test_without():

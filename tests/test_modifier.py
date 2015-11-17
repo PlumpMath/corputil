@@ -6,24 +6,23 @@ from os import path
 test_file2 = path.join('tests', 'data', 'corpus_2.txt')
 
 
-def test_without():
+def test_words():
     pass
 
 
 def test_words_sl():
     wordlist = [
         ['damen', 'herren'],
+        [],
         ['führt', 'institut'],
-        ['spd', 'vorgeschlagenen', 'dezentralen', 'einreisezentren', 'bessere', 'konzept'],
-        ['richtigen', 'schritte', 'getan'],
-        ['einhergehenden', 'üppigeren', 'spritverbrauch', 'geld', 'ausgleichen', 'fahrer', 'autos', 'zugehen'],
-        ['thema', 'mitte', 'gesellschaft', 'angekommen']
+        ['vorgeschlagenen', 'dezentralen', 'einreisezentren', 'bessere', 'konzept'],
+        ['richtigen', 'schritte'],
+        ['einhergehenden', 'üppigeren', 'spritverbrauch', 'geld', 'ausgleichen'],
+        ['fahrer', 'autos', 'zugehen'],
+        ['mitte', 'gesellschaft', 'angekommen']
     ]
     corpus = FileCorpus(test_file2, modifier=sentence_to_words_sl)
-    for i, words in enumerate(corpus):
-        if i is 0:
-            print(words)
-            assert words == wordlist[i]
+    assert all(this == that for this, that in zip(corpus, wordlist))
 
 
 def test_sentences():
@@ -36,6 +35,4 @@ def test_sentences():
         'Es zeigt ja auch, dass das Thema in der Mitte der Gesellschaft angekommen ist.'
     ]
     corpus = FileCorpus(test_file2, modifier=to_sentences)
-    for i, sentence in enumerate(corpus):
-        print(sentence)
-        assert sentence == sentencelist[i]
+    assert all(this == that for this, that in zip(corpus, sentencelist))

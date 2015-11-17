@@ -8,6 +8,5 @@ install:
     - python setup.py install
 before_script:
     - python -m nltk.downloader punkt
-    - python -m textblob.download_corpora
 script:
     - py.test

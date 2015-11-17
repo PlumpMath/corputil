@@ -1,3 +1,17 @@
+widerrufen
+wider
+angebot
+angebote
+groß
+große
+großen
+gilt
+gelten
+lange
+stellen
+bleibt
+trotz
+trotzdem
 schickt
 schicken
 schickte
@@ -16,6 +30,8 @@ erklären
 erklärt
 beispiel
 kommentar
+informieren
+informiert
 informationen
 gerade
 heißt
@@ -26,6 +42,8 @@ worden
 beitrag
 user
 interesse
+interessant
+interessante
 veröffentlichung
 politik
 politischen
@@ -117,6 +135,7 @@ minuten
 stunde
 stunden
 tag
+tage
 tagen
 tages
 einestages
@@ -299,6 +318,7 @@ jede
 jedem
 jeden
 jeder
+jederzeit
 jedes
 jene
 jenem
@@ -1135,6 +1155,7 @@ zuletzt
 zumal
 zurück
 zusammen
+zuvor
 zuviel
 zwanzig
 zwei

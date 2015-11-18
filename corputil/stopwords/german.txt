@@ -86,6 +86,8 @@ online
 stern
 bild
 süddeutsche
+golem
+heise
 mail
 frage
 fragen

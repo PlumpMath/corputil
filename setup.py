@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='corputil',
-    version='0.4.1',
+    version='0.4.2',
     packages=['corputil'],
     package_data={'corputil': ['stopwords/*.txt']},
     install_requires=['nltk'],

@@ -1,16 +1,11 @@
 from corputil import FileCorpus
-from corputil.modifiers import to_sentences, sentence_to_words, sentence_to_words_sl
 from os import path
 
 
 test_file2 = path.join('tests', 'data', 'corpus_2.txt')
 
 
-def test_words():
-    pass
-
-
-def test_words_sl():
+def test_sentences_token():
     wordlist = [
         ['damen', 'herren'],
         [],
@@ -21,7 +16,7 @@ def test_words_sl():
         ['fahrer', 'autos', 'zugehen'],
         ['mitte', 'gesellschaft', 'angekommen']
     ]
-    corpus = FileCorpus(test_file2, modifier=sentence_to_words_sl)
+    corpus = FileCorpus(test_file2).sentences_token(stopwords='german')
     assert all(this == that for this, that in zip(corpus, wordlist))
 
 
@@ -34,5 +29,6 @@ def test_sentences():
         'Und er muss auch auf die Fahrer der mehrere Millionen Autos zugehen.',
         'Es zeigt ja auch, dass das Thema in der Mitte der Gesellschaft angekommen ist.'
     ]
-    corpus = FileCorpus(test_file2, modifier=to_sentences)
+    corpus = FileCorpus(test_file2).sentences()
     assert all(this == that for this, that in zip(corpus, sentencelist))
+

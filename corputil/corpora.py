@@ -1,48 +1,54 @@
+from .modifiers import sentences, sentences_token, doc_sentences_token, doc_token
+
+
 class FileCorpus(object):
-    def __init__(self, filename, modifier=None, encoding='UTF-8'):
-        self.filename = filename
-        self.modifier = modifier
+    def __init__(self, *args, encoding='UTF-8'):
+        self.files = [file for file in args]
         self.encoding = encoding
 
     def __iter__(self):
-        for doc in open(self.filename, encoding=self.encoding):
-            if self.modifier:
-                yield from self.modifier(doc)
-            else:
+        for file in self.files:
+            for doc in open(file, encoding=self.encoding):
                 yield doc
 
+    def doc_token(self, stopwords=None):
+        for doc in self:
+            yield from doc_token(doc, stopwords)
 
-class MultiFileCorpus(object):
-    def __init__(self, filenames, modifier=None, encoding='UTF-8'):
-        self.filenames = filenames
-        self.modifier = modifier
-        self.encoding = encoding
+    def doc_sentences_token(self, lang='german', stopwords=None):
+        for doc in self:
+            yield from doc_sentences_token(doc, lang, stopwords)
 
-    def __iter__(self):
-        for filename in self.filenames:
-            corpus = FileCorpus(filename, modifier=self.modifier, encoding=self.encoding)
-            yield from corpus
+    def sentences(self, lang='german'):
+        for doc in self:
+            yield from sentences(doc, lang)
+
+    def sentences_token(self, lang='german', stopwords=None):
+        for doc in self:
+            yield from sentences_token(doc, lang, stopwords)
 
 
 class StreamCorpus(object):
-    def __init__(self, stream, modifier=None):
-        self.stream = stream
-        self.modifier = modifier
-
-    def __iter__(self):
-        for doc in self.stream:
-            if self.modifier:
-                yield from self.modifier(doc)
-            else:
-                yield doc
-
-
-class MultiStreamCorpus(object):
-    def __init__(self, streams, modifier=None):
-        self.streams = streams
-        self.modifier = modifier
+    def __init__(self, *args):
+        self.streams = [stream for stream in args]
 
     def __iter__(self):
         for stream in self.streams:
-            corpus = StreamCorpus(stream, modifier=self.modifier)
-            yield from corpus
+            for doc in stream:
+                yield doc
+
+    def doc_token(self, stopwords=None):
+        for doc in self:
+            yield from doc_token(doc, stopwords)
+
+    def doc_sentences_token(self, lang='german', stopwords=None):
+        for doc in self:
+            yield from doc_sentences_token(doc, lang, stopwords)
+
+    def sentences(self, lang='german'):
+        for doc in self:
+            yield from sentences(doc, lang)
+
+    def sentences_token(self, lang='german', stopwords=None):
+        for doc in self:
+            yield from sentences_token(doc, lang, stopwords)

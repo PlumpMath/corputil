@@ -1,1 +1,1 @@
-from .corpora import FileCorpus, MultiFileCorpus, StreamCorpus, MultiStreamCorpus
+from .corpora import FileCorpus, StreamCorpus

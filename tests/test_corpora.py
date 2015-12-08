@@ -1,4 +1,4 @@
-from corputil import FileCorpus, MultiFileCorpus
+from corputil import FileCorpus
 from os import path
 
 test_file1 = path.join('tests', 'data', 'corpus_1.txt')
@@ -12,6 +12,6 @@ def test_corpus():
 
 
 def test_multicorpus():
-    corpus = MultiFileCorpus([test_file1, test_file2])
+    corpus = FileCorpus(test_file1, test_file2)
     corpora = [doc for doc in corpus]
     assert len(corpora) is 10

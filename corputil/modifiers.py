@@ -1,5 +1,5 @@
 import re
-from .utils import get_tokenizer
+from .utils import get_tokenizer, get_stopwords
 
 
 pattern = re.compile(r'[\W\d]')
@@ -13,7 +13,7 @@ def sentences(doc, lang):
 
 
 def sentences_token(doc, lang, stopwords):
-    stopwords = frozenset(stopwords)
+    stopwords = get_stopwords(stopwords)
     for sentence in sentences(doc, lang):
         letters_only = pattern.sub(' ', sentence)
         words = letters_only.lower().split()
@@ -23,7 +23,7 @@ def sentences_token(doc, lang, stopwords):
 
 
 def doc_token(doc, stopwords):
-    stopwords = frozenset(stopwords)
+    stopwords = get_stopwords(stopwords)
     letters_only = pattern.sub(' ', doc)
     words = letters_only.lower().split()
     words = [word for word in words

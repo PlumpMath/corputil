@@ -14,4 +14,4 @@ def test_corpus():
 def test_multicorpus():
     corpus = FileCorpus(test_file1, test_file2)
     corpora = [doc for doc in corpus]
-    assert len(corpora) is 10
+    assert len(corpora) is 8

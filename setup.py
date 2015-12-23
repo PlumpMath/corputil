@@ -8,7 +8,7 @@ setup(
     package_data={'corputil': ['stopwords/*.txt']},
     install_requires=['nltk'],
     url='',
-    license='MIT',
+    license='',
     author='Sascha Can',
     author_email='Sascha.Can@gmail.com',
     description=''

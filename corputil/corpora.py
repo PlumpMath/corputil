@@ -3,6 +3,7 @@ from .modifiers import sentences, sentences_token, doc_sentences_token, doc_toke
 
 class Corpus(object):
     def __iter__(self):
+        raise NotImplementedError('Use on of the functional corpora...')
         pass
 
     def doc_token(self, stopwords=None):

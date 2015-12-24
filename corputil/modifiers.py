@@ -1,19 +1,19 @@
 import re
-from .utils import _get_tokenizer, _get_stopwords
+from .utils import init_tokenizer, finalize_stopwords
 
 
 pattern = re.compile(r'[\W\d]')
 
 
 def sentences(doc, lang):
-    tokenizer = _get_tokenizer(lang)
+    tokenizer = init_tokenizer(lang)
     raw_sentences = tokenizer.tokenize(doc.strip())
     for sentence in raw_sentences:
         yield sentence
 
 
 def sentences_token(doc, lang, stopwords):
-    stopwords = _get_stopwords(stopwords)
+    stopwords = finalize_stopwords(stopwords)
     for sentence in sentences(doc, lang):
         letters_only = pattern.sub(' ', sentence)
         words = letters_only.lower().split()
@@ -23,7 +23,7 @@ def sentences_token(doc, lang, stopwords):
 
 
 def doc_token(doc, stopwords):
-    stopwords = _get_stopwords(stopwords)
+    stopwords = finalize_stopwords(stopwords)
     letters_only = pattern.sub(' ', doc)
     words = letters_only.lower().split()
     words = [word for word in words

@@ -1,13 +1,13 @@
 import nltk
 
 
-def _get_stopwords(sw):
+def finalize_stopwords(sw):
     if not sw:
         sw = []
     return frozenset(sw)
 
 
-def _get_tokenizer(lang):
+def init_tokenizer(lang):
     model = 'tokenizers/punkt/{}.pickle'.format(lang.lower())
     return nltk.data.load(model)
 

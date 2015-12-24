@@ -13,7 +13,7 @@ def test_sentences_token():
         ['die', 'von', 'der', 'spd', 'vorgeschlagenen', 'dezentralen', 'einreisezentren', 'seien', 'das', 'bessere', 'konzept'],
         ['aber', 'dafür', 'müssen', 'jetzt', 'auch', 'die', 'richtigen', 'schritte', 'getan', 'werden'],
     ]
-    corpus = FileCorpus(test_file2).sentences_token()
+    corpus = FileCorpus([test_file2]).sentences_token()
     assert all(this == that for this, that in zip(corpus, wordlist))
 
 
@@ -25,7 +25,7 @@ def test_sentences_token_sl():
         ['die', 'von', 'der', 'spd', 'vorgeschlagenen', 'dezentralen', 'einreisezentren', 'seien', 'das', 'bessere', 'konzept'],
         ['aber', 'dafür', 'müssen', 'jetzt', 'auch', 'die', 'richtigen', 'schritte', 'getan', 'werden'],
     ]
-    corpus = FileCorpus(test_file2).sentences_token(stopwords=['meine', 'geht', 'führt'])
+    corpus = FileCorpus([test_file2]).sentences_token(stopwords=['meine', 'geht', 'führt'])
     assert all(this == that for this, that in zip(corpus, wordlist))
 
 
@@ -38,6 +38,6 @@ def test_sentences():
         'Und er muss auch auf die Fahrer der mehrere Millionen Autos zugehen.',
         'Es zeigt ja auch, dass das Thema in der Mitte der Gesellschaft angekommen ist.'
     ]
-    corpus = FileCorpus(test_file2).sentences()
+    corpus = FileCorpus([test_file2]).sentences()
     assert all(this == that for this, that in zip(corpus, sentencelist))
 

@@ -1,1 +1,1 @@
-from .corpora import FileCorpus, StreamCorpus
+from .corpora import FileCorpus, StreamCorpus, ListCorpus
